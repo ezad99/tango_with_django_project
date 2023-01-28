@@ -12,10 +12,12 @@ def index(request):
     # that will be passed to the template engine.
     # The '-likes' mean that the Category is in descending order
     category_list = Category.objects.order_by('-likes')[:5]
+    page_list = Page.objects.order_by('-views')[:5]
 
     context_dict = {}
     context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['categories'] = category_list
+    context_dict['pages'] = page_list
 
     # Return a rendered response to send it back!
     return render(request, 'rango/index.html', context=context_dict)
