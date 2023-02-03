@@ -8,6 +8,7 @@ class Category(models.Model):
     likes = models.IntegerField(default=0)
     views = models.IntegerField(default=0)
     slug = models.SlugField(unique=True)
+    NAME_MAX_LENGTH = 128
 
     #args is just a name in can be replaced, what's important is the unpacking operator(*)
     #args accepts positional arguments
@@ -27,6 +28,7 @@ class Page(models.Model):
     title = models.CharField(max_length=128)
     url = models.URLField()
     views = models.IntegerField(default=0)
+    TITLE_MAX_LENGTH = 128;
 
     def __str__(self):
         return self.title
